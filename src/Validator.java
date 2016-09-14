@@ -11,11 +11,11 @@ class Validator {
 	private static Scanner sc = new Scanner(System.in);
 	
    /**
-   * Validates string. Repeats until valid string is inputed.
-   * 
-   * @param prompt	A prompt which asks users to input data
-   * @return		Validated string
-   */	
+    * Validates string. Repeats until valid string is inputed.
+    * 
+    * @param prompt	A prompt which asks users to input data
+    * @return		Validated string
+    */	
 	public static String getString(String prompt){
 		String s;
 		while (true){
@@ -32,11 +32,11 @@ class Validator {
 	}
 	
    /**
-   * Validates integer. Repeats until valid integer is inputed.
-   * 
-   * @param prompt	A prompt which asks users to input data
-   * @return		Validated integer
-   */	
+    * Validates integer. Repeats until valid integer is inputed.
+    * 
+    * @param prompt	A prompt which asks users to input data
+    * @return		Validated integer
+    */	
 	public static int getIntRange(String prompt, int min, int max){
 		int value;
 		while (true){

@@ -13,24 +13,24 @@ import java.nio.file.Paths;
  */
 public class RunnersFileIO {
 	private RunnersList runList;
-	String dirPath;
+	private String dirPath;
 	
    /**
-   * Class constructor
-   * 
-   *  @param runList	An instance of RunnersList class which holds all runners objects
-   */
+    * Class constructor
+    * 
+    *  @param runList	An instance of RunnersList class which holds all runners objects
+    */
 	public RunnersFileIO(RunnersList runList){
 		this.runList = runList;
 		dirPath = "./Resources";
 	}
 	
    /**
-   * Creates runners objects(threads) from the specified xml file.
-   * 
-   * @param filename	A validated filename for a xml file
-   * @return			True if runners created successfully from the specified data source
-   */	
+    * Creates runners objects(threads) from the specified xml file.
+    * 
+    * @param filename	A validated filename for a xml file
+    * @return			True if runners created successfully from the specified data source
+    */	
 	public boolean createRunnersXML(String filename){
 		Path filePath = Paths.get(dirPath, filename);
 		try (FileReader file = new FileReader(filePath.toFile())){
@@ -80,11 +80,11 @@ public class RunnersFileIO {
 	}
 	
    /**
-   * Creates runners objects(threads) from the specified text file.
-   * 
-   * @param filename	A validated filename for a text file
-   * @return			True if runners created successfully from the specified data source
-   */	
+    * Creates runners objects(threads) from the specified text file.
+    * 
+    * @param filename	A validated filename for a text file
+    * @return			True if runners created successfully from the specified data source
+    */	
 	public boolean createRunnersTXT(String filename){
 		String line;
 		Path filePath = Paths.get(dirPath, filename);

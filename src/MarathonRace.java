@@ -11,21 +11,21 @@ import java.util.Scanner;
 public class MarathonRace {
 
 	private static ArrayList<ThreadRunner> runners;
-	RunnersDAO db;   // For handling database access
-	RunnersFileIO io;  // For handling xml/text files
-	RunnersList runList;  // For storing/exposing runners objects
+	private RunnersDAO db;   // For handling database access
+	private RunnersFileIO io;  // For handling xml/text files
+	private RunnersList runList;  // For storing/exposing runners objects
 	private static Scanner sc = new Scanner(System.in);
 	
    /**
-   * Class constructor 
-   */
+    * Class constructor 
+    */
 	public MarathonRace(){
 		runList = new RunnersList();
 	}
 
    /**
-   * Displays the program menu.
-   */
+    * Displays the program menu.
+    */
 	public void displayMenu(){
 		String s = "\nWelcome to the Marathon Race Runner Program\n\n"
 				 + "Select your data source: \n\n"
@@ -38,12 +38,12 @@ public class MarathonRace {
 	}
 
    /**
-   * Validates user input (Program menu)
-   * 
-   * @param min		Minimum number of the menu
-   * @param max 	Maximum number of the menu
-   * @return choice Validated string number of the menu
-   */	
+    * Validates user input (Program menu)
+    * 
+    * @param min		Minimum number of the menu
+    * @param max 	Maximum number of the menu
+    * @return choice Validated string number of the menu
+    */	
 	public int getChoice(int min, int max){
 		String prompt = "Enter your choice: ";
 		int choice = Validator.getIntRange(prompt, min, max);
@@ -51,11 +51,11 @@ public class MarathonRace {
 	}
 	
    /**
-   * Validates user input (Filename). Checks if the file extension matches to the selected data source.
-   * 
-   * @param s			A filename which user specified
-   * @return filename  	A validated filename
-   */	
+    * Validates user input (Filename). Checks if the file extension matches to the selected data source.
+    * 
+    * @param s			A filename which user specified
+    * @return filename  	A validated filename
+    */	
 	public String getFileName(String s){
 		String prompt = "";
 		String filename;
@@ -83,8 +83,8 @@ public class MarathonRace {
 	}
 
    /**
-   * Waits until any key from the user is inputed
-   */	
+    * Waits until any key from the user is inputed
+    */	
 	public void waitInput(){
 		System.out.println();
 		System.out.print("Press any key to continue...");
@@ -96,10 +96,10 @@ public class MarathonRace {
 	}
 	
    /**
-   * Gets runners from the instance of RnnersList class and starts each runner as a thread.
-   * 
-   * @param s	A type of the data source for runners specified by the user
-   */	
+    * Gets runners from the instance of RnnersList class and starts each runner as a thread.
+    * 
+    * @param s	A type of the data source for runners specified by the user
+    */	
 	public void startRace(String s){
 		if (s.equals("default"))
 			runners = runList.getDefaultRunners();
@@ -134,12 +134,12 @@ public class MarathonRace {
 	}
 	
    /**
-   * Reads runners data from the selected data source, and creates/sets runners in an instance of RunnersList class.
-   * 
-   * @param filename	A validated filename
-   * @param s			A type of the data source for runners
-   * @return			True if runners created successfully from the specified data source 
-   */		
+    * Reads runners data from the selected data source, and creates/sets runners in an instance of RunnersList class.
+    * 
+    * @param filename	A validated filename
+    * @param s			A type of the data source for runners
+    * @return			True if runners created successfully from the specified data source 
+    */		
 	public boolean createRunners(String filename, String s){
 		if (s.equals("xml")){
 			io = new RunnersFileIO(runList);
@@ -157,11 +157,11 @@ public class MarathonRace {
 	}
 
    /**
-   * Only one of the threads(the winner) can call when it finishes the race.
-   * Declares the winner and interrupts all threads to concedes the race. 
-   * 
-   * @param winnerName	A name of the thread declared by the winner
-   */	
+    * Only one of the threads(the winner) can call when it finishes the race.
+    * Declares the winner and interrupts all threads to concedes the race. 
+    * 
+    * @param winnerName	A name of the thread declared by the winner
+    */	
 	public static void finishRace(String winnerName){
 		System.out.flush();
 		System.out.printf("The race is over! %s is the winner.\n\n", winnerName);

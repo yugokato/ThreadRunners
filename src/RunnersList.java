@@ -11,26 +11,26 @@ public class RunnersList {
 	private ArrayList<ThreadRunner> runners;
 
 	/**
-   * Class constructor
-   */
+     * Class constructor
+     */
 	public RunnersList(){
 		runners = new ArrayList<>();
 	}
 	
    /**
-   * Returns runners list.
-   * 
-   * @return	A list of ThreadRunners instances
-   */
+    * Returns runners list.
+    * 
+    * @return	A list of ThreadRunners instances
+    */
 	public ArrayList<ThreadRunner> getRunners(){
 		return runners;
 	}
 	
    /**
-   * Returns Hard coded default runners list.
-   * 
-   * @return	A list of default ThreadRunners instances
-   */ 
+    * Returns Hard coded default runners list.
+    * 
+    * @return	A list of default ThreadRunners instances
+    */ 
 	public ArrayList<ThreadRunner> getDefaultRunners(){
 		ThreadRunner th1 = new ThreadRunner("Tortoise", 10, 0);
 		ThreadRunner th2 = new ThreadRunner("Hare", 100, 90);
@@ -40,20 +40,20 @@ public class RunnersList {
 	}
 	
    /**
-   * Create an instance of ThreadRunner and adds into the list.
-   * 
-   * @param	runnersName			runner's name
-   * @param runnersSpeed		runners speed
-   * @param restPercentage		A percentage the runner will rest
-   */ 
+    * Create an instance of ThreadRunner and adds into the list.
+    * 
+    * @param	runnersName			runner's name
+    * @param runnersSpeed		runners speed
+    * @param restPercentage		A percentage the runner will rest
+    */ 
 	public void addRunner(String runnersName, double runnersSpeed, double restPercentage){
 		ThreadRunner th = new ThreadRunner(runnersName, runnersSpeed, restPercentage);
 		runners.add(th);
 	}
 
    /**
-   * Clears the runners list.
-   */ 
+    * Clears the runners list.
+    */ 
 	public void clearRunners(){
 		runners.clear();
 	}

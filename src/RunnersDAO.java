@@ -14,19 +14,19 @@ public class RunnersDAO {
 	private RunnersList runList;
 	
    /**
-   * Class constructor
-   * 
-   * @param runList	An instance of RunnersList class which holds all runners objects
-   */
+    * Class constructor
+    * 
+    * @param runList	An instance of RunnersList class which holds all runners objects
+    */
 	public RunnersDAO(RunnersList runList){
 		this.runList = runList;
 	}
 	
    /**
-   * Get a connection to derby database. 
-   * 
-   * @return	An object of the connection
-   */
+    * Get a connection to derby database. 
+    * 
+    * @return	An object of the connection
+    */
 	private Connection getConnection(){
 		Connection conn = null;
 		try{
@@ -46,10 +46,10 @@ public class RunnersDAO {
 	}
 	
    /**
-   * Disconnects the connection to derby database 
-   * 
-   * @return	True when connection was successfully closed
-   */
+    * Disconnects the connection to derby database 
+    * 
+    * @return	True when connection was successfully closed
+    */
 	private boolean disconnect(){
 		try{
 			String shutdownURL = "jdbc:derby:RunnersDB;shutdown=true";
@@ -64,10 +64,10 @@ public class RunnersDAO {
 	}
 	
    /**
-   * Creates runners objects(threads) from the embedded derby database.
-   * 
-   * @return	True if runners created successfully from the derby database
-   */	
+    * Creates runners objects(threads) from the embedded derby database.
+    * 
+    * @return	True if runners created successfully from the derby database
+    */	
 	public boolean createRunnersDB(){
 		String query = "SELECT * FROM RunnersStats";
 		try	{
